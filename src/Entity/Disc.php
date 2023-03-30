@@ -10,20 +10,20 @@ class Disc
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column( name: "disc_id")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name: "disc_title", length: 255, nullable: true)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name: "disc_year", length: 255, nullable: true)]
     private ?string $picture = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name: "disc_label", length: 255, nullable: true)]
     private ?string $label = null;
 
     #[ORM\ManyToOne(inversedBy: 'discs')]
-    #[ORM\JoinColumn(name: 'id', referencedColumnName: 'id')]
+    #[ORM\JoinColumn(name: 'artist_id', referencedColumnName: 'artist_id')]
     private ?Artist $artist = null;
 
     public function getId(): ?int

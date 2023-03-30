@@ -12,13 +12,13 @@ class Artist
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(name: "artist_id")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name: "artist_name", length: 255, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name: "artist_url", length: 255, nullable: true)]
     private ?string $url = null;
 
     #[ORM\OneToMany(mappedBy: 'artist', targetEntity: Disc::class)]
